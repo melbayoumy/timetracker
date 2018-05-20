@@ -1,0 +1,50 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.logo-section {
+  background: $theme-color-green;
+
+  .h1 {
+    font-weight: bolder;
+    color: white !important;
+  }
+
+  img {
+    vertical-align: top;
+  }
+}
+
+.nav-section {
+  background: white;
+  color: $theme-color-green !important;
+
+  .btn {
+    min-width: 140px;
+  }
+}
+
+.btn {
+  border-radius: 100px;
+}
+
+.clock-block {
+  width: 180px;
+  align-items: center;
+}
+
+.display-clock {
+  font-size: 9rem;
+  line-height: normal;
+}
+
+.pagination .active .page-link {
+  background: $theme-color-green;
+  border: $success;
+}
