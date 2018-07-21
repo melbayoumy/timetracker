@@ -22,9 +22,9 @@ To run the app:
 
 *hint*: In case if the app won't run on the root domain then go to the .env file, change the ROOT_URL to match the app root url (e.g. if the app will run on http://localhost/timetracker/public then ROOT_URL=/timetracker/public. If the app will run on the main domain then ROOT_URL=/ ).
 
-2. You need to create mysql database.
-3. Import the timetrackerdb.sql file to your database, to create the required tables. It will be filled with dummy data.
-4. In the .env file, change the parameters below to match your database.
+3. You need to create mysql database.
+4. Import the timetrackerdb.sql file to your database, to create the required tables. It will be filled with dummy data.
+5. In the .env file, change the parameters below to match your database.
 
 	- DB_CONNECTION=mysql
 	- DB_HOST=127.0.0.1
