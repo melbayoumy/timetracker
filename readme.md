@@ -1,60 +1,43 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<h1>Time Tracker</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+The timetracker application is based on SPA (Single Page Application) concept.
+I am using Laravel 5.6 for the Back-end and VueJS 2 for the Front-end.
 
-## About Laravel
+The plugins used:
+<ul>
+	<li>vue-router (https://router.vuejs.org/en/): For SPA client side routing</li>
+	<li>vee-validate (https://baianat.github.io/vee-validate/): For front-end forms validation</li>
+	<li>sweetalert (https://sweetalert.js.org): For alerts</li>
+	<li>axios (https://github.com/axios/axios): For promises and API interaction</li>
+	<li>bootstrap4.1 (https://getbootstrap.com/): For UI styling</li>
+	<li>fontawesome (https://fontawesome.com): For icons</li>
+</ul>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+I mainly depend on npm in installing them. Also, on Laravel-mix which uses webpack for JS and SASS bundling.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+To run the app:
+1. Upload all the files on a machine that has WAMP/XAMP/MAMP/LAMP with PHP7.1. Put it in the web directory (In my case, I used WAMP and it was C:\wamp64\www). The Public folder should be triggered by the browser(client) to load the application.
+2. You need to create mysql database.
+3. Import the timetrackerdb.sql file to your database, to create the required tables. It will be filled with dummy data.
+4. In the .env file, change the APP_URL to match your root url (e.g. APP_URL=http://localhost/timetracker/public).
+5. In the .env file. Change the parameters below to match your database.
+<ul>
+	<li>DB_CONNECTION=mysql</li>
+	<li>DB_HOST=127.0.0.1</li>
+	<li>DB_PORT=3306</li>
+	<li>DB_DATABASE=timetrackerdb</li>
+	<li>DB_USERNAME=root</li>
+	<li>DB_PASSWORD=root</li>
+</ul>
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+Here, I have uploaded a <a target="_blank" href="http://timetracker.idsarchitects.org">LIVE DEMO</a>.
 
-## Learning Laravel
+Time Elapsed to finish the application till this point: 12 hours over 3 days
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Recommended future work:
+	-Avail scalability. Separate totally the front-end and the back-end.
+	-Allow server-side rendering for better user experience. I recommend using NUXT.JS.
+	-Enable user profiles (register/login), authentication, secure API's. OAuth2 can be used here.
+	-The time should be shown per time zone
+	-Support different languages
+	-Search by each word in the search box. Now, the whole phrase is used

@@ -18,33 +18,33 @@ class TaskController extends Controller
         $pagintation = 10;
 
         // get sorting options
-        $sortBy = null !== $request->input('sort_by') ? $request->input('sort_by') : 'finished_at_desc';
+        $sortBy = $request->input('sort_by') ? : 'finished_at_desc';
         
         // get searching phrase in description
         $descriptionSearch = null !== $request->input('description') ? $request->input('description') : '%';
-        
+
         switch ($sortBy) {
             case "finished_at_asc":
                 return Task::orderBy('created_at', 'ASC')
-                ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
-                ->paginate($pagintation);
+                    ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
+                    ->paginate($pagintation);
                 break;
             case "longest_duration":
                 return Task::orderBy('days', 'DESC')->orderBy('hours', 'DESC')
-                ->orderBy('minutes', 'DESC')->orderBy('seconds', 'DESC')
-                ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
-                ->paginate($pagintation);
+                    ->orderBy('minutes', 'DESC')->orderBy('seconds', 'DESC')
+                    ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
+                    ->paginate($pagintation);
                 break;
             case "shortest_duration":
                 return Task::orderBy('days', 'ASC')->orderBy('hours', 'ASC')
-                ->orderBy('minutes', 'ASC')->orderBy('seconds', 'ASC')
-                ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
-                ->paginate($pagintation);
+                    ->orderBy('minutes', 'ASC')->orderBy('seconds', 'ASC')
+                    ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
+                    ->paginate($pagintation);
                 break;
             default:
                 return Task::orderBy('created_at', 'DESC')
-                ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
-                ->paginate($pagintation);
+                    ->where('description', 'LIKE', '%' . $descriptionSearch . '%')
+                    ->paginate($pagintation);
         }
     }
 
@@ -60,8 +60,7 @@ class TaskController extends Controller
         try {
             $task = Task::create($request->all());
             return response('Task created successfully.');
-        }
-        catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response('Failed to create task!', 400);
         }
     }
@@ -70,20 +69,20 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  String  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        // get task
-        $task = Task::findOrFail($id);
 
-        // update task
         try {
+            // get task
+            $task = Task::findOrFail($id);
+
             $task->update($request->all());
+
             return response('Task updated successfully.');
-        }
-        catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response('Failed to update task!', 400);
         }
     }
@@ -91,20 +90,19 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  String  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        // get task
-        $task = Task::findOrFail($id);
 
-        // delete task
         try {
+            // get task
+            $task = Task::findOrFail($id);
             $task->delete();
+
             return $task;
-        }
-        catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response('Failed to delete task!', 400);
         }
     }

@@ -22,6 +22,9 @@
             <base-component></base-component>
         </div>
 
+        <script>
+            let baseURL = "{{ env('APP_URL') }}";
+        </script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
