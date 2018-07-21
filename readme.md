@@ -20,6 +20,7 @@ To run the app:
 1. Upload all the files on a machine that has WAMP/XAMP/MAMP/LAMP with PHP7.1. Put it in the web directory (In my case, I used WAMP and it was C:\wamp64\www). The Public folder should be triggered by the browser(client) to load the application.
 
 *hint*: In case if the app won't run on the root domain then go to the .env file, change the ROOT_URL to match the app root url (e.g. if the app will run on http://localhost/timetracker/public then  ROOT_URL=/timetracker/public).
+
 2. You need to create mysql database.
 3. Import the timetrackerdb.sql file to your database, to create the required tables. It will be filled with dummy data.
 4. In the .env file, change the parameters below to match your database.
