@@ -23,7 +23,7 @@
         </div>
 
         <script>
-            let baseURL = "{{ env('APP_URL') }}";
+            let baseURL = "{{ env('ROOT_URL') }}";
         </script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
